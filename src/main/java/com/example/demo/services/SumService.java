@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.Sum;
-import com.example.demo.payloads.SumDTO;
 import com.example.demo.repositories.SumDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,12 +46,14 @@ public class SumService {
     }
 
 
-    public Sum saveSum(SumDTO body, int firstNumber, int secondNumber){
+    public int saveSum(int firstNumber, int secondNumber){
         Sum newSum = new Sum();
         int sumValue = sumTheNumbers(firstNumber, secondNumber);
         newSum.setSum(sumValue);
         newSum.setDateOfInsertion(LocalDate.now());
-        return sumDAO.save(newSum);
+        sumDAO.save(newSum);
+        return sumValue;
     }
+
 
 }
