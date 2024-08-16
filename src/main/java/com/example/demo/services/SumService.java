@@ -40,14 +40,19 @@ public class SumService {
         number++;
     }}
 
+    public int sumTheNumbers(int firstNumber, int secondNumber){
+     int biggestNumber = findTheBiggestNumber(firstNumber, secondNumber);
+     int biggestFirstPrimeNumber = firstPrimeNumberGreaterThenNumber(biggestNumber);
+        return firstNumber + secondNumber + biggestFirstPrimeNumber;
+    }
 
 
-    public Sum saveSum(SumDTO body){
+    public Sum saveSum(SumDTO body, int firstNumber, int secondNumber){
         Sum newSum = new Sum();
-        newSum.setSum(body.sum());
+        int sumValue = sumTheNumbers(firstNumber, secondNumber);
+        newSum.setSum(sumValue);
         newSum.setDateOfInsertion(LocalDate.now());
         return sumDAO.save(newSum);
     }
-
 
 }
