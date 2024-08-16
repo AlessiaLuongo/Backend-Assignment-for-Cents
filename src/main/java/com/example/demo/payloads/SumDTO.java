@@ -1,4 +1,10 @@
 package com.example.demo.payloads;
 
-public record SumDTO() {
+
+import jakarta.validation.constraints.NotNull;
+
+public record SumDTO(
+        @NotNull(message = "Please insert a number")
+        Integer sum
+) {
 }
