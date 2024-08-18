@@ -19,5 +19,7 @@ PG_PASSWORD= -database password
 
 PG_URL= database connection url
 
+In the SumsController class within the controller package, please update the @CrossOrigin annotation to include the correct frontend URL. This is necessary to avoid CORS policy issues.
+
 
 You can find the frontend repository here: https://github.com/AlessiaLuongo/Frontend-Tech-Assignment-for-Cents
